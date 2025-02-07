@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/svg" sizes="32x32" href="./assets/images/logo-mark.svg" />
+  <title>Frontend Mentor | Conference ticket generator</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400..800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+  <!-- Header  -->
+  <header class="header">
+    <a href="#">
+      <img src="./assets/images/logo-full.svg" role="img" width="180" height="180" alt="Coding Conf Home"
+        class="header__logo" /></a>
+    <img src="./assets/images/pattern-squiggly-line-top.svg" alt="" width="100" height="100" class="header__bg-image" />
+  </header>
+
+  <main class="app">
+    <!-- Background pattern  -->
+      <img class="app__bg-lines" src="./assets/images/pattern-lines.svg" alt="" width="200" height="200" />
+      <img class="app__bg-circle1" src="./assets/images/pattern-circle.svg" alt="" />
+      <img class="app__bg-circle2" src="./assets/images/pattern-circle.svg" alt="" />
+
+    <!-- Loader  -->
+    <div class="app__loader js-loader">
+      <div class="app__animation">
+        <dotlottie-player src="https://lottie.host/e3e4b351-4fc3-4d3f-a601-249cc60507e0/uaUtP3zzwZ.lottie"
+          background="transparent" speed="1" style="width: 200px; height: 200px;" loop autoplay>
+        </dotlottie-player>
+      </div>
+    </div>
+
+    <div class="app__container js-app-container">
+      <div class="js-app-header">
+        <h1 class="app__headline js-app-headline">
+          Your Journey to Coding Conf 2025 Starts Here!
+        </h1>
+        </h1>
+        <p class="app__description js-app__description">
+          Secure your spot at next year's biggest coding conference.
+        </p>
+      </div>
+
+      <form novalidate class="form js-form">
+        <div class="form__group">
+          <label class="form__label" aria-labelledby="upload-label">
+            <span id="upload-label">Upload Avatar</span>
+            <div class="form__file-wrapper">
+              <div class="form__upload-area js-upload-area" draggable="true" id="js-draggable-upload-area">
+                <img src="./assets/images/icon-upload.svg" alt="" class="form__upload-icon" />
+                <p class="form__file-title">Drag and drop or click to upload</p>
+              </div>
+              <input id="file-input" type="file" name="avatar" class="form__input form__input--file js-input-file"
+                aria-describedby="avatar" accept=".jpg, .jpeg, .png" />
+            </div>
+          </label>
+          <div class="preview js-preview-container">
+            <div class="preview__controls">
+              <button type="button" class="preview__btn preview__btn--remove js-remove-preview-btn">Remove
+                Image</button>
+              <label for="file-input" class="preview__btn">Change Image</label>
+            </div>
+          </div>
+          <p class="form__hint form__hint--file" id="avatar" aria-live="polite">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
+              <path stroke="#D1D0D5" stroke-linecap="round" stroke-linejoin="round"
+                d="M2 8a6 6 0 1 0 12 0A6 6 0 0 0 2 8Z" />
+              <path fill="#D1D0D5" d="M8.004 10.462V7.596ZM8 5.57v-.042Z" />
+              <path stroke="#D1D0D5" stroke-linecap="round" stroke-linejoin="round"
+                d="M8.004 10.462V7.596M8 5.569v-.042" />
+            </svg>
+            Upload your photo (JPG or PNG, max size: 500KB).
+          </p>
+        </div>
+        <div class="form__group">
+          <label for="fname" class="form__label">
+            <span>Full Name</span>
+          </label>
+          <input type="text" id="fname" name="fullname" class="form__input form__input--1 js-form-input" autocomplete="off"
+            aria-describedby="" />
+          <p class="form__hint" id="fullname" aria-live="polite">
+          </p>
+        </div>
+        <div class="form__group">
+          <label for="email" class="form__label">
+            <span>Email Address</span>
+
+          </label>
+          <input type="email" id="email" name="email_address" email class="form__input form__input--2 js-form-input" autocomplete="off"
+            placeholder="example@email.com" aria-describedby="" />
+          <p class="form__hint" id="email_address" aria-live="polite">
+          </p>
+        </div>
+        <div class="form__group">
+          <label for="github" class="form__label">
+            <span>Github Username</span>
+          </label>
+          <input id="github" type="text" class="form__input form__input--3 js-form-input" autocomplete="off" name="github_name"
+            placeholder="@yourusername" aria-describedby="" />
+          <p id="github_name" class="form__hint" aria-live="polite">
+          </p>
+        </div>
+        <button class="form__btn js-form-btn">Generate My Ticket</button>
+      </form>
+
+      <div class="ticket js-ticket-main">
+        <img src="./assets/images/pattern-ticket.svg" alt="" class="ticket__bg">
+        <div class="ticket__container js-ticket-container">
+          <div class="ticket__header">
+              <img src="./assets/images/logo-mark.svg" alt="" class="ticket__logo">
+              <div>
+                <h2>Coding Conf</h2>
+                <p class="ticket__date"><span class="js-ticket-date"></span> / Surulere, Lagos</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </main>
+
+  <footer class="footer">
+    <picture>
+      <source srcset="
+            ./assets/images/pattern-squiggly-line-bottom.svg
+          " media="(max-width: 767px)" />
+      <source srcset="./assets/images/pattern-squiggly-line-bottom.svg" media="(min-width: 768px)" />
+      <img src="./assets/images/pattern-squiggly-line-bottom.svg" alt="" class="footer__bg-image"
+        width="200" height="200" />
+    </picture>
+  </footer>
+
+  <div class="attribution">
+    Challenge by
+    <a class="attribution__link" href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+    Coded by <a class="attribution__link" href="https://github.com/Iamdewale">Famakinwa Adewale Femi</a>.
+  </div>
+
+  <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+  <script type="text/javascript" src="./script.js"></script>
+</body>
+</html>
